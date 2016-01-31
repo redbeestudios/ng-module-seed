@@ -10,9 +10,10 @@ gulp.task('serve', ['compile'], function (done) {
     open: false,
     port: packageJson.moduleConfig.port,
     server: {
-      baseDir: ['.'],
+      baseDir: ['dist'],
       routes: {
-        '/styles':'dist/styles'
+        '/styles':'dist/styles',
+        '/node_modules': 'node_modules'
       },
       middleware: function (req, res, next) {
         res.setHeader('Access-Control-Allow-Origin', '*');
